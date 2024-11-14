@@ -39,7 +39,7 @@
 		mv {{ $release }}/storage {{ $path }}/storage
 		ln -s {{ $path }}/storage {{ $release }}/storage
 		echo "Storage directory set up"
-		cp {{ $release }}/.env.example {{ $path }}/.env
+		cat {{ $release }}/.env.example >> {{ $path }}/.env
 		ln -s {{ $path }}/.env {{ $release }}/.env
 		echo "Environment file set up"
 		rm -rf {{ $release }}
