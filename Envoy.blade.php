@@ -103,7 +103,11 @@
 	cd {{ $release }}
 	npm install --no-audit --no-fund --no-optional
 	echo "Running npm..."
-	npm run {{ $env }} --silent
+	@if ( $env == 'production')
+	   npm run build --silent
+	@else
+	   npm run dev --silent
+	@endif
 @endtask
 
 @task('deployment_cache')
