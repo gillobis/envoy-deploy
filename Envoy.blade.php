@@ -102,6 +102,10 @@
 @task('deployment_npm')
 	echo "Installing npm dependencies..."
 	cd {{ $release }}
+
+	export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
 	npm install --no-audit --no-fund --no-optional
 	echo "Running npm..."
 	@if ( $env == 'production')
