@@ -54,7 +54,7 @@
 	deployment_links
 	deployment_composer
 	deployment_migrate
-	dployment_npm
+	deployment_npm
 	deployment_cache
 	deployment_symlink
 	deployment_reload
